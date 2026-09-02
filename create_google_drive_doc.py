@@ -195,18 +195,18 @@ def create_document(output_path: str):
         ("Task 1: 알고리즘 구현 (SlidingWindowRateLimiter)",
          "• 내용: 윈도우 슬라이딩 알고리즘 기반 요청 제어 및 잔여 쿼터 반환 로직 구현\n"
          "• 실측 결과:\n"
-         "  - Gemini CLI (3.5): 46.75초 | 117,925 tokens (미통과 - 엣지 케이스 실패)\n"
-         "  - Antigravity (3.5): 302.07초 | 17,171 tokens (미통과 - 파일 탐색 발산으로 타임아웃)\n"
-         "  - Antigravity (3.7): 61.72초 | 74,488 tokens (Thinking 1,697 tokens)\n"
-         "• 핵심 분석: 3.7 Flash의 내재적 사고(Thinking)가 개입하여 파일 경로를 즉시 식별하고 1개 파일(+27/-6줄)을 완벽히 편집. 3.5 대비 소요 시간을 79.6% 단축하며 타임아웃을 완전 해소함."),
+         "  - Gemini CLI (3.5): 46.75초 | 117,925 tokens | 결과: 미통과 (Fail - 엣지 케이스 실패)\n"
+         "  - Antigravity (3.5): 302.07초 | 17,171 tokens | 결과: 미통과 (Fail - 파일 탐색 발산으로 5분 타임아웃)\n"
+         "  - Antigravity (3.7): 61.72초 | 74,488 tokens (Thinking 1,697 tokens) | 결과: 미통과 (Fail - 단위 테스트 미통과)\n"
+         "• 핵심 분석: 3.7 Flash의 내재적 사고(Thinking)가 개입하여 파일 경로를 즉시 식별하고 코드 편집(+27/-6줄)을 수행했으나 단위 테스트는 통과하지 못함. 다만 3.5 대비 소요 시간을 79.6% 단축(302초 -> 61초)하며 타임아웃 문제를 완전 해소함."),
         
         ("Task 2: 디버깅 및 결함 수정 (UserSessionAggregator)",
          "• 내용: 파이썬 가변 기본 인자 참조 결함(Default argument mutation) 및 연속 이벤트 필터링 버그 분석/패치\n"
          "• 실측 결과:\n"
-         "  - Gemini CLI (3.5): 78.48초 | 242,597 tokens\n"
-         "  - Antigravity (3.5): 134.41초 | 82,610 tokens\n"
-         "  - Antigravity (3.7): 62.63초 | 64,415 tokens (Thinking 596 tokens)\n"
-         "• 핵심 분석: Antigravity 3.7 Flash가 3자 중 가장 빠른 완료 속도(62.63초)를 기록 (Gemini CLI보다 20.2% 빠름). 소모 토큰은 Gemini CLI(24.2만)의 26.5% 수준(6.4만)으로 압도적인 효율 입증."),
+         "  - Gemini CLI (3.5): 78.48초 | 242,597 tokens | 결과: 미통과 (Fail - 단위 테스트 2건 실패)\n"
+         "  - Antigravity (3.5): 134.41초 | 82,610 tokens | 결과: 미통과 (Fail - 단위 테스트 2건 실패)\n"
+         "  - Antigravity (3.7): 62.63초 | 64,415 tokens (Thinking 596 tokens) | 결과: 미통과 (Fail - 단위 테스트 2건 실패)\n"
+         "• 핵심 분석: 세 모델 모두 단위 테스트 통과에 실패(미통과). 다만 Antigravity 3.7 Flash가 완료 속도(62.63초, Gemini보다 20.2% 빠름)와 토큰 소모량(Gemini 24만 대비 6.4만으로 26.5% 수준)에서 상대적인 작업 처리 효율을 나타냄."),
         
         ("Task 3: 전략 패턴 리팩토링 (OrderProcessor)",
          "• 내용: 결제, 할인, 알림이 강결합된 모놀리식 주문 처리 클래스를 Strategy Pattern으로 객체지향 분리\n"
