@@ -1,0 +1,23 @@
+[
+  {
+    "task_id": "T1_FIX_SYNTAX_ERROR",
+    "tier": "Tier 1 (단순 버그 수정)",
+    "description": "단일 파일 내 Null Pointer Exception 및 타입 불일치 버그 수정",
+    "prompt": "Fix the TypeError in auth/service.ts where user.profile is accessed without null check. Make sure all unit tests pass.",
+    "test_cmd": "npm test -- auth/service.test.ts"
+  },
+  {
+    "task_id": "T2_MULTI_FILE_API",
+    "tier": "Tier 2 (다중 파일 기능 구현)",
+    "description": "사용자 활동 로그 조회를 위한 REST API 신규 엔드포인트 구현",
+    "prompt": "Implement GET /api/v1/users/:id/activity-logs with pagination. Add route, controller, service layer and update Swagger doc.",
+    "test_cmd": "npm test -- test/integration/activity-log.test.ts"
+  },
+  {
+    "task_id": "T3_ASYNC_RACE_DEBUG",
+    "tier": "Tier 3 (복합 디버깅)",
+    "description": "분산 락 해제 타이밍 문제로 발생하는 동시성 버그 원인 분석 및 패치",
+    "prompt": "Investigate failing test in payment/concurrency.test.ts. Analyze race conditions during token refund, and fix the distributed lock release logic.",
+    "test_cmd": "npm test -- payment/concurrency.test.ts"
+  }
+]

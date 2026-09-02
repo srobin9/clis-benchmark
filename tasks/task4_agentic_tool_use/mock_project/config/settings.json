@@ -1,0 +1,7 @@
+{
+  "auth": {
+    "algorithm": "HS256",
+    "token_ttl_seconds": 3600,
+    "issuer": "gemini-service"
+  }
+}

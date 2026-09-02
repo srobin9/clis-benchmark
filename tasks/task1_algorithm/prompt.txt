@@ -1,0 +1,6 @@
+`tasks/task1_algorithm/rate_limiter.py` 파일의 SlidingWindowRateLimiter 클래스를 완성해주세요.
+요구사항:
+1. `allow_request(client_id, current_time)` 메서드가 윈도우 슬라이딩 알고리즘에 맞게 동작해야 합니다.
+2. `get_remaining_quota(client_id, current_time)` 메서드가 올바른 잔여 쿼터를 반환해야 합니다.
+3. `tasks/task1_algorithm/test_rate_limiter.py`의 모든 단위 테스트를 통과해야 합니다.
+직접 코드를 편집하여 완성해주세요.

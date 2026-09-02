@@ -1,0 +1,3 @@
+`tasks/task2_debugging/data_pipeline.py` 파일의 UserSessionAggregator 클래스에 버그가 존재하여 `tasks/task2_debugging/test_data_pipeline.py` 테스트가 실패하고 있습니다.
+버그의 원인을 찾아 코드를 수정하고 모든 테스트가 성공하도록 고쳐주세요.
+직접 코드를 편집하여 완성해주세요.
